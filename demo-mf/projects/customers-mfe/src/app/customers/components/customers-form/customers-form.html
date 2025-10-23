@@ -1,0 +1,42 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="customer-form" novalidate>
+
+  <!-- Campo Nombre -->
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="name" placeholder="Ej. John Doe">
+    <!--
+      Uso de @if para mostrar errores de validación de forma condicional.
+      Es más limpio que el antiguo *ngIf.
+    -->
+    @if (form.get('name')?.touched && form.get('name')?.hasError('required')) {
+      <mat-error>El nombre es requerido.</mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Campo Email -->
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" placeholder="Ej. john.doe@example.com" type="email">
+    @if (form.get('email')?.touched && form.get('email')?.hasError('required')) {
+      <mat-error>El email es requerido.</mat-error>
+    }
+    @if (form.get('email')?.touched && form.get('email')?.hasError('email')) {
+      <mat-error>Por favor, introduce un email válido.</mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Campo Teléfono -->
+  <mat-form-field appearance="outline">
+    <mat-label>Teléfono</mat-label>
+    <input matInput formControlName="phone" placeholder="Ej. 123-456-7890">
+     @if (form.get('phone')?.touched && form.get('phone')?.hasError('required')) {
+      <mat-error>El teléfono es requerido.</mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Acciones del Formulario -->
+  <div class="form-actions">
+    <button mat-stroked-button type="button" (click)="onCancel()">Cancelar</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">Guardar</button>
+  </div>
+</form>

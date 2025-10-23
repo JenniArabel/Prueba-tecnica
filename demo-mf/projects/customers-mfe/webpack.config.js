@@ -1,16 +1,18 @@
-const {
-  shareAll,
-  withModuleFederationPlugin,
-} = require('@angular-architects/module-federation/webpack');
+const { shareAll, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
 
 module.exports = withModuleFederationPlugin({
+
   name: 'customers-mfe',
 
+  filename: 'remoteEntry.js',
+
   exposes: {
-    './Component': './projects/customers-mfe/src/app/app.ts',
-  },
+  './CustomersModule': './src/app/customers/pages/customers-page/customers-page.ts',
+},
+
 
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
   },
+
 });

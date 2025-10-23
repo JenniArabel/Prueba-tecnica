@@ -1,0 +1,32 @@
+Nelson Arabel
+22:39
+<div class="page-container">
+  <h1>Gestión de Clientes</h1>
+
+  @if (showForm()) {
+
+    <customers-form
+      [customer]="selectedCustomer()"
+      (save)="onSave($event)"
+      (cancel)="onCancel()">
+    </customers-form>
+
+  } @else {
+
+    @if (loading()) {
+      <div class="spinner-container">
+        <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>
+      </div>
+    } @else {
+
+      <customers-list
+        [customers]="customers()"
+        (edit)="onEdit($event)">
+      </customers-list>
+    }
+
+    <button mat-fab color="primary" class="fab-bottom-right" aria-label="Añadir cliente" (click)="onNew()">
+      <mat-icon>add</mat-icon>
+    </button>
+  }
+</div>
