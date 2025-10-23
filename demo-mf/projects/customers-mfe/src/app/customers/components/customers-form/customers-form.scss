@@ -1,0 +1,74 @@
+.customer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #161215;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: visible;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-label {
+  font-weight: 500;
+  color: #fff;
+}
+
+input[matInput] {
+  font-size: 0.95rem;
+}
+
+mat-error {
+  font-size: 0.85rem;
+  color: #d32f2f;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+button[mat-stroked-button] {
+  color: #8B118B;
+  border-color: #8B118B;
+  transition: all 0.2s ease;
+}
+
+button[mat-stroked-button]:hover {
+  background-color: rgba(63, 81, 181, 0.04);
+}
+
+button[mat-flat-button] {
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+button[mat-flat-button]:hover:not([disabled]) {
+  background-color: #8B118B;
+}
+
+@media (max-width: 600px) {
+  .customer-form {
+    padding: 1.5rem 1rem;
+    box-shadow: none;
+    background: #161215;
+    overflow: visible;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    width: 100%;
+  }
+}

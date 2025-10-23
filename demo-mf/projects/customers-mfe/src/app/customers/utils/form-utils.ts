@@ -11,6 +11,7 @@ export class FormUtils {
   static readonly emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
   static readonly passwordPattern =
     '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d@$!%*?&]{8,}$';
+  static readonly phonePattern = '^[+]?[0-9\\s\\-\\(\\)]{10,15}$';
 
   static getTextError(errors: ValidationErrors) {
     for (const key of Object.keys(errors)) {
@@ -75,6 +76,18 @@ export class FormUtils {
 
         case 'invalidNameFormat':
           return 'Debe ingresar nombre y apellido separados por espacio';
+
+        case 'invalidPhoneFormat':
+          return 'El teléfono debe tener un formato válido';
+
+        case 'phoneMinLength':
+          return `El teléfono debe tener al menos ${errors['phoneMinLength'].requiredLength} caracteres`;
+
+        case 'phoneMaxLength':
+          return `El teléfono no puede exceder ${errors['phoneMaxLength'].requiredLength} caracteres`;
+
+        case 'maxlength':
+          return `Máximo de ${errors['maxlength'].requiredLength} caracteres`;
 
         default:
           return `Error de validación no controlado ${key}`;
@@ -220,6 +233,34 @@ export class FormUtils {
       if (!hasAllAddressFields) {
         return { incompleteAddress: true };
       }
+    }
+
+    return null;
+  }
+
+  static phoneValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (!value) return null;
+
+    if (typeof value !== 'string') {
+      return { invalidType: true };
+    }
+
+    if (value.length < 10) {
+      return {
+        phoneMinLength: { requiredLength: 10, actualLength: value.length },
+      };
+    }
+
+    if (value.length > 15) {
+      return {
+        phoneMaxLength: { requiredLength: 15, actualLength: value.length },
+      };
+    }
+
+    const phoneRegex = new RegExp(FormUtils.phonePattern);
+    if (!phoneRegex.test(value)) {
+      return { invalidPhoneFormat: true };
     }
 
     return null;

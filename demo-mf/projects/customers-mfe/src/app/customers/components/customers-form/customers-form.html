@@ -2,35 +2,28 @@
 
   <!-- Campo Nombre -->
   <mat-form-field appearance="outline">
-    <mat-label>Nombre</mat-label>
-    <input matInput formControlName="name" placeholder="Ej. John Doe">
-    <!--
-      Uso de @if para mostrar errores de validación de forma condicional.
-      Es más limpio que el antiguo *ngIf.
-    -->
-    @if (form.get('name')?.touched && form.get('name')?.hasError('required')) {
-      <mat-error>El nombre es requerido.</mat-error>
+    <mat-label>Nombre Completo</mat-label>
+    <input matInput formControlName="name" placeholder="Ej. John Doe Smith">
+    @if (isValidField('name')) {
+      <mat-error>{{ getFieldError('name') }}</mat-error>
     }
   </mat-form-field>
 
   <!-- Campo Email -->
   <mat-form-field appearance="outline">
-    <mat-label>Email</mat-label>
+    <mat-label>Correo Electrónico</mat-label>
     <input matInput formControlName="email" placeholder="Ej. john.doe@example.com" type="email">
-    @if (form.get('email')?.touched && form.get('email')?.hasError('required')) {
-      <mat-error>El email es requerido.</mat-error>
-    }
-    @if (form.get('email')?.touched && form.get('email')?.hasError('email')) {
-      <mat-error>Por favor, introduce un email válido.</mat-error>
+    @if (isValidField('email')) {
+      <mat-error>{{ getFieldError('email') }}</mat-error>
     }
   </mat-form-field>
 
   <!-- Campo Teléfono -->
   <mat-form-field appearance="outline">
-    <mat-label>Teléfono</mat-label>
-    <input matInput formControlName="phone" placeholder="Ej. 123-456-7890">
-     @if (form.get('phone')?.touched && form.get('phone')?.hasError('required')) {
-      <mat-error>El teléfono es requerido.</mat-error>
+    <mat-label>Número de Teléfono</mat-label>
+    <input matInput formControlName="phone" placeholder="Ej. +1-234-567-8900" type="tel">
+    @if (isValidField('phone')) {
+      <mat-error>{{ getFieldError('phone') }}</mat-error>
     }
   </mat-form-field>
 
