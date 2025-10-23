@@ -45,7 +45,7 @@ export class CustomersFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      id: [null],
+      id: [null as number | undefined | null],
       name: ['', [Validators.required, FormUtils.nameValidator]],
       email: ['', [Validators.required, FormUtils.mailValidator]],
       phone: ['', [Validators.required, FormUtils.phoneValidator]],
@@ -69,7 +69,11 @@ export class CustomersFormComponent implements OnInit {
 
   onSubmit(): void {
     if (this.form.valid) {
-      this.save.emit(this.form.value);
+      const value = { ...this.form.value };
+      if (value.id === null) {
+        value.id = undefined;
+      }
+      this.save.emit(value);
     }
   }
 
