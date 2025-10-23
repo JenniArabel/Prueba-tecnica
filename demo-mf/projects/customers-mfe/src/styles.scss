@@ -1,30 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-// Custom Theming for Angular Material
-@use '@angular/material' as mat;
-
-@include mat.core();
-
-// Define the theme colors
-$customers-mfe-primary: mat.define-palette(mat.$magenta-palette);
-$customers-mfe-accent: mat.define-palette(mat.$purple-palette, A200, A100, A400);
-$customers-mfe-warn: mat.define-palette(mat.$red-palette);
-
-// Create the theme object
-$customers-mfe-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $customers-mfe-primary,
-      accent: $customers-mfe-accent,
-      warn: $customers-mfe-warn,
-    ),
-    typography: mat.define-typography-config(),
-    density: 0,
-  )
-);
-
-// Include theme styles for core and each component used in your app
-@include mat.all-component-themes($customers-mfe-theme);
+// Import Angular Material styles
+@import '@angular/material/prebuilt-themes/magenta-violet.css';
 
 // Global styles
 html,
