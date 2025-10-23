@@ -65,8 +65,9 @@
 					"configurations": {
 						"production": {
 							"buildTarget": "customers-mfe:build:production",
-							"extraWebpackConfig": "projects/customers-mfe/webpack.prod.config.js"
-						},
+							"extraWebpackConfig": "projects/customers-mfe/webpack.prod.config.js",
+              "baseHref": "/"
+            },
 						"development": {
 							"buildTarget": "customers-mfe:build:development"
 						}
