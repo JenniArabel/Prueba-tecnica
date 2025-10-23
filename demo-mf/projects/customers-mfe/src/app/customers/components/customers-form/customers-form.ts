@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { FormUtils } from '../../utils/form-utils';
 
 
 @Component({
@@ -13,11 +14,10 @@ import { MatButtonModule } from '@angular/material/button';
   // styleUrls: ['./customer-form.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    ReactiveFormsModule,    // Essential for formGroup, formControlName
-    MatFormFieldModule,     // For mat-form-field, mat-label, mat-error
-    MatInputModule,         // For matInput directive
-    MatButtonModule         // If you have submit buttons
-    // ...other imports
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
 })
 export class CustomersFormComponent implements OnInit {
@@ -46,15 +46,25 @@ export class CustomersFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       id: [null],
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
+      name: ['', [Validators.required, FormUtils.nameValidator]],
+      email: ['', [Validators.required, FormUtils.mailValidator]],
+      phone: ['', [Validators.required, FormUtils.phoneValidator]],
     });
 
     const customerValue = this.customer();
     if (customerValue) {
       this.form.patchValue(customerValue);
     }
+  }
+
+  // Método para obtener errores usando FormUtils
+  getFieldError(fieldName: string): string | null {
+    return FormUtils.getFieldError(this.form, fieldName);
+  }
+
+  // Método para verificar si un campo es válido
+  isValidField(fieldName: string): boolean | null {
+    return FormUtils.isValidField(this.form, fieldName);
   }
 
   onSubmit(): void {
