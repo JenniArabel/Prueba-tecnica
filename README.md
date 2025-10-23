@@ -1,76 +1,42 @@
-# Prueba Técnica
+# 🧪 Prueba Técnica – Frontend Developer Jr (Angular + Microfrontends)
 
-## Descripción
+## 📋 Descripción General
 
-Este repositorio contiene la solución para la prueba técnica.
+Este repositorio contiene la solución desarrollada por **Jennifer Arabel** para la **Prueba Técnica – Frontend Developer Jr (Angular + Microfrontends)**.  
+El proyecto implementa un **microfrontend funcional** llamado `customers-mfe`, encargado del módulo **Gestión de Clientes**, desarrollado con **Angular 17**, **Module Federation** y **Angular Material**.
 
-## Instalación
+---
 
-```bash
-# Instrucciones de instalación
-```
+## 🧠 Objetivo del Proyecto
 
-## Uso
+Desarrollar un microfrontend independiente que permita **listar, crear y editar clientes** (nombre, email, teléfono) aplicando:
+- Buenas prácticas de desarrollo frontend.
+- Arquitectura modular y escalable.
+- Principios **SOLID** y **Clean Code**.
+- Programación reactiva con **RxJS** y **Angular Signals**.
+- Diseño limpio y responsivo con **Angular Material**.
 
-```bash
-# Instrucciones de uso
-```
+---
 
-## Contribución
+## 💻 Stack Técnico
 
-Instrucciones para contribuir al proyecto.
+- **Angular 17**
+- **Angular Material**
+- **Module Federation (Microfrontends)**
+- **RxJS y Signals**
+- **TypeScript estricto**
+- **Git / GitHub**
 
-## Licencia
+---
 
-Información sobre la licencia del proyecto.
+## ⚙️ Instalación y Ejecución
 
-# Análisis: Buenas Prácticas en CustomersPageComponent
+# 1. Clona el repositorio
+git clone https://github.com/JenniArabel/Prueba-tecnica.git
+cd Prueba-tecnica/demo-mf
 
-Sí, el CustomersPageComponent implementa múltiples buenas prácticas de Angular moderno:
+# 2. Instala dependencias
+npm install
 
-✅ Buenas prácticas técnicas
-ChangeDetectionStrategy.OnPush
-
-Mejora el rendimiento reduciendo ciclos de detección de cambios
-Solo actualiza la UI cuando cambian las referencias de entrada o se emiten eventos
-Signals para gestión de estado
-
-Usa la API moderna de signals (signal()) para estado local
-Comparte signals del servicio (customers, loading)
-Inyección de dependencias moderna
-
-Utiliza inject() en lugar del constructor tradicional
-Código más limpio y menos verboso
-Tipado estricto con TypeScript
-
-Uso correcto de tipos (Customer, Partial<Customer>)
-Uso de utilidades de tipos como Omit<Customer, 'id'>
-Control Flow moderno
-
-Usa la nueva sintaxis @if/@else en la plantilla
-✅ Buenas prácticas de arquitectura
-Principio de responsabilidad única
-
-Cada método tiene un propósito específico y bien definido
-El componente coordina pero no implementa la lógica de negocio
-Patrón Presentador/Contenedor
-
-Actúa como contenedor que coordina componentes de presentación
-Maneja el estado y eventos, delegando la presentación
-Delegación al servicio
-
-La lógica CRUD se delega al CustomerService
-Mantiene la separación de responsabilidades
-✅ Buenas prácticas de mantenibilidad
-Documentación con JSDoc
-
-Todos los métodos tienen documentación clara
-Explica propósito, parámetros y comportamiento
-Código comentado
-
-HTML con comentarios explicativos sobre la estructura
-Secciones organizadas y etiquetadas
-Reutilización de código
-
-Reutiliza onCancel() para evitar duplicación
-Este componente representa una implementación moderna y de alta calidad siguiendo las mejores prácticas de Angular actuales.
+# 3. Levanta el microfrontend
+ng serve customers-mfe
