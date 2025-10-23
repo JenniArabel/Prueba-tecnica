@@ -40,3 +40,24 @@ npm install
 
 # 3. Levanta el microfrontend
 ng serve customers-mfe
+
+
+## Capturas
+
+![Listado de clientes mockeados - desktop](image-2.png)
+
+![Listado de clientes mockeados - mobile](image-1.png)
+
+![Form para agregar nuevo cliente - desktop](image-3.png)
+
+![Form para agregar nuevo cliente - mobile](image-4.png)
+
+![Form si se deja los campos vacíos - mobile](image-5.png)
+
+![Validaciones del formulario - mobile](image-6.png)
+
+![Form completado correctamente - mobile](image-7.png)
+
+![Listado con nuevo cliente - desktop](image-8.png)
+
+![Form para editar cliente](image-9.png)
