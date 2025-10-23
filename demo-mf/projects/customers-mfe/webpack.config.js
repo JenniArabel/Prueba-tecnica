@@ -7,8 +7,8 @@ module.exports = withModuleFederationPlugin({
   filename: 'remoteEntry.js',
 
   exposes: {
-  './CustomersModule': './src/app/customers/pages/customers-page/customers-page.ts',
-},
+    './customersRoutes': './projects/customers-mfe/src/app/customers/customers.routes.ts',
+  },
 
 
   shared: {
