@@ -21,7 +21,7 @@ import { Customer } from '../../../core/mock-api-interceptor';
     CustomersFormComponent,
   ],
   templateUrl: './customers-page.html',
-  // styleUrls: ['./customers-page.scss'],
+  styleUrls: ['./customers-page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomersPageComponent {

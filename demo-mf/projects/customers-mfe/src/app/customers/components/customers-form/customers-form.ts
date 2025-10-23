@@ -11,7 +11,7 @@ import { FormUtils } from '../../utils/form-utils';
 @Component({
   selector: 'customers-form',
   templateUrl: './customers-form.html',
-  // styleUrls: ['./customer-form.scss'],
+  styleUrls: ['./customers-form.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     ReactiveFormsModule,

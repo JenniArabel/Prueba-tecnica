@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'customers-list',
   templateUrl: './customers-list.html',
+  styleUrls: ['./customers-list.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     MatTableModule,    // This provides matRowDef, matHeaderRowDef, matCellDef, etc.
