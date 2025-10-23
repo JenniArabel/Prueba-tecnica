@@ -87,11 +87,9 @@ export class CustomerService {
   addCustomer(customerData: Omit<Customer, 'id'>): Observable<Customer> {
     return this.http.post<Customer>(this.apiUrl, customerData).pipe(
       tap((newCustomer) => {
-        // Una vez que la API confirma la creación, actualizamos nuestro estado local.
-        this.#state.update((state) => ({
-          ...state,
-          customers: [...state.customers, newCustomer],
-        }));
+        console.log('addCustomer tap', newCustomer);
+        // En vez de modificar el array local, recargamos la lista desde la API para evitar duplicados.
+        this.loadCustomers();
       })
     );
   }
