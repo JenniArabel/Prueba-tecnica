@@ -1,45 +1,56 @@
-/* ====== Tabla general ====== */
+.customer-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: #121212;
+  margin-top: 1rem;
+}
+
 .customer-table {
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-collapse: collapse;
+  min-width: 500px;
 }
 
-/* ====== Encabezado ====== */
 th.mat-header-cell {
-  background-color: #3f51b5;
-  color: #8B118B;
+  background-color: #8B118B;
+  color: #fff;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   padding: 0.8rem;
+  text-align: left;
+  white-space: nowrap;
 }
 
-/* ====== Celdas ====== */
 td.mat-cell {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   padding: 0.8rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #2a2a2a;
+  color: #fff;
+  vertical-align: middle;
+  word-break: break-word;
 }
 
 tr.mat-row:hover {
-  background-color: #f5f5f5;
+  background-color: #2c2c2c;
   transition: background-color 0.2s ease-in-out;
 }
 
-/* ====== Botón de acción ====== */
-button[mat-icon-button] {
-  transition: transform 0.15s ease, color 0.15s ease;
+.fab-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10;
+  background-color: #8B118B;
+  color: #fff;
 }
 
-button[mat-icon-button]:hover {
-  color: #303f9f;
-  transform: scale(1.15);
-}
-
-/* ====== Estado vacío ====== */
 .empty-state {
   text-align: center;
   padding: 3rem 1rem;
@@ -56,27 +67,58 @@ button[mat-icon-button]:hover {
   margin-bottom: 0.5rem;
 }
 
-.empty-state p:first-of-type {
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-  color: #424242;
-}
+@media (max-width: 600px) {
+  .customer-table-wrapper {
+    padding: 0 8px;
+    overflow-x: hidden;
+    border-radius: 12px;
+  }
 
-.empty-state p:last-of-type {
-  color: #616161;
-}
-
-/* ====== Responsividad ====== */
-@media (max-width: 768px) {
   .customer-table {
+    width: 100%;
+    min-width: unset;
     font-size: 0.85rem;
+  table-layout: fixed;
   }
 
-  th.mat-header-cell, td.mat-cell {
-    padding: 0.6rem;
+  th.mat-header-cell,
+  td.mat-cell {
+    padding: 0.4rem 0.3rem;
+    font-size: 0.8rem;
+    text-align: left;
+  white-space: normal;
+    word-wrap: break-word;
   }
 
-  .empty-state {
-    padding: 2rem 0.5rem;
+  th.mat-header-cell:nth-child(1),
+  td.mat-cell:nth-child(1) {
+  width: 25%;
+  }
+
+  th.mat-header-cell:nth-child(2),
+  td.mat-cell:nth-child(2) {
+  width: 35%;
+  }
+
+  th.mat-header-cell:nth-child(3),
+  td.mat-cell:nth-child(3) {
+  width: 25%;
+  }
+
+  th.mat-header-cell:nth-child(4),
+  td.mat-cell:nth-child(4) {
+  width: 15%;
+    text-align: center;
+  }
+
+  tr.mat-row:hover {
+    background-color: #1f1f1f;
+  }
+
+  .fab-button {
+    bottom: 16px;
+    right: 16px;
   }
 }
+
+

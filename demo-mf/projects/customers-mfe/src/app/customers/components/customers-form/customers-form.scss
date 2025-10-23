@@ -8,9 +8,9 @@
   background: #161215;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: visible;
 }
 
-/* ====== Campos de formulario ====== */
 mat-form-field {
   width: 100%;
 }
@@ -24,13 +24,11 @@ input[matInput] {
   font-size: 0.95rem;
 }
 
-/* ====== Mensajes de error ====== */
 mat-error {
   font-size: 0.85rem;
   color: #d32f2f;
 }
 
-/* ====== Botones ====== */
 .form-actions {
   display: flex;
   justify-content: flex-end;
@@ -54,15 +52,15 @@ button[mat-flat-button] {
 }
 
 button[mat-flat-button]:hover:not([disabled]) {
-  background-color: #303f9f;
+  background-color: #8B118B;
 }
 
-/* ====== Responsividad ====== */
 @media (max-width: 600px) {
   .customer-form {
     padding: 1.5rem 1rem;
     box-shadow: none;
-    background: transparent;
+    background: #161215;
+    overflow: visible;
   }
 
   .form-actions {
